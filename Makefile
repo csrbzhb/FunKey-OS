@@ -17,7 +17,8 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
 
-BRMAKE = buildroot/utils/brmake -C buildroot
+#BRMAKE = buildroot/utils/brmake -C buildroot
+BRMAKE = make -C buildroot
 BR = make -C buildroot
 
 # Strip quotes and then whitespaces
@@ -103,7 +104,7 @@ image: fun
 	@$(call MESSAGE,"Creating disk image")
 	@rm -rf root tmp
 	@mkdir -p root tmp
-	@./Recovery/output/host/bin/genimage --loglevel 0 --inputpath .
+	@./Recovery/output/host/bin/genimage --loglevel 6 --inputpath .
 	@rm -rf root tmp
 	@mv images/sdcard.img images/FunKey-sdcard-$(shell cat FunKey/board/funkey/rootfs-overlay/etc/sw-versions | cut -f 2).img
 
