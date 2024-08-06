@@ -11,4 +11,9 @@
 #
 # By default this script does nothing.
 
+if [ ! -f /mnt/adb ];then
+        echo "no aa"
+        touch /mnt/adb
+fi
+
 exit 0
